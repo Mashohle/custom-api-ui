@@ -15,8 +15,7 @@ const App = () => {
 
 
   useEffect(() => {
-    themeChange(false)
-    // dispatch(activeUser());
+    dispatch(activeUser());
   }, [dispatch])
 
   if (isAuthenticated) {

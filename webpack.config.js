@@ -1,8 +1,8 @@
-var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+require('regenerator-runtime/runtime');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: ['regenerator-runtime/runtime.js', './src/index.js'],
     output: {
         publicPath: 'http://localhost:3000/',
     },
@@ -13,7 +13,7 @@ module.exports = {
         },
         proxy: {
             '/api/users': {
-                target: 'https://localhost:8000',
+                target: 'http://localhost:8000',
                 secure: false,
             },
         }
