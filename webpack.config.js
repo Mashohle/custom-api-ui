@@ -3,6 +3,21 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
+    output: {
+        publicPath: 'http://localhost:3000/',
+    },
+    devServer: {
+        port: 3000,
+        historyApiFallback: {
+            index: '/index.html'
+        },
+        proxy: {
+            '/api/users': {
+                target: 'https://localhost:8000',
+                secure: false,
+            },
+        }
+    },
     module: {
         rules: [
             {
